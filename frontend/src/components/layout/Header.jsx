@@ -32,7 +32,7 @@ export default function Header({ toggleSidebar }) {
   const notifRef = useRef(null);
 
   useEffect(() => {
-    notifAPI.getAll().then(setNotifs);
+    notifAPI.getAll({ limit: 20 }).then(setNotifs).catch(() => {});
   }, []);
 
   // Close dropdown when clicking outside
@@ -203,7 +203,7 @@ export default function Header({ toggleSidebar }) {
               >
                 <div className="px-4 py-3 border-b border-gray-100 dark:border-gray-700 mb-2 sm:hidden">
                   <p className="text-sm font-semibold text-gray-900 dark:text-white">{user?.name || 'Administrador Demo'}</p>
-                  <p className="text-xs text-gray-500">{user?.email || 'admin@universidad.edu'}</p>
+                  <p className="text-xs text-gray-500">{user?.email || 'admin@colegio.edu'}</p>
                 </div>
 
                 <button
